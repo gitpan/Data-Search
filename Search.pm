@@ -2,7 +2,7 @@ package Data::Search;
 use strict;
 use warnings;
 require Exporter;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our @ISA = qw(Exporter);
 our @EXPORT= qw(datasearch);
 
@@ -56,9 +56,11 @@ RETURN => 'arraycontainer'
 Also, you can get an outer container by doing RETURN => 'container:xyz'
 in which case the container returned would be a structure pointed to
 by key xyz (if found to contain the search element somewhere inside it).
-
+Please see the examples at the end of this document.
 
 ARGUMENTS
+The following arguments are accepted (case-insensitively).
+The only mandatory arguments are DATA and FIND.
 
  data   => Reference of structure to search
  search => What elements to search: keys|values|all (default: keys)
@@ -96,6 +98,9 @@ named myrecord (even if suffix is deep inside those hashes)
 
 sub datasearch {
     my $args = get_args( [qw(FIND SEARCH RETURN DATA)], @_ );
+
+    die "FIND argument is required" unless defined $args->{FIND};
+    die "DATA argument is required" unless defined $args->{DATA};
 
     my $sk = 1 if !$args->{SEARCH} || $args->{SEARCH} =~ /key|all/
       or ref($args->{FIND}) eq 'ARRAY';
