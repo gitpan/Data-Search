@@ -1,13 +1,13 @@
 
-README for Data::Search 0.02
+README for Data::Search 0.03
 ============================
 
 Data::Search can search complex data structures.
 Please read the pod documentation embeded in Search.pm for details.
 Installing the module will provide the same documentation in a man page.
 
-I encourage you to submit comments, bug reports, suggestions, and patches
-to: alx@cpan.org
+You are encouraged you to submit comments, bug reports,
+suggestions, and patches to: alx@cpan.org
 
 INSTALLATION
 
@@ -17,6 +17,10 @@ To install this module, type the following:
   make
   make test
   make install
+
+DEPENDENCIES
+
+None.
 
 COPYRIGHT
 
